@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Копировать Текст</title>
+    <style>
+        .centered-content {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<div class="centered-content">
+    <p id="textToCopy">4400 4301 3707 1798</p>
+    <button onclick="copyText()">Скопировать номер карты</button>
+</div>
+
+<script>
+function copyText() {
+  var text = document.getElementById('textToCopy').innerText;
+  var elem = document.createElement("textarea");
+  document.body.appendChild(elem);
+  elem.value = text;
+  elem.select();
+  document.execCommand("copy");
+  document.body.removeChild(elem);
+  alert("Текст скопирован: " + text);
+}
+</script>
+
+</body>
+</html>
